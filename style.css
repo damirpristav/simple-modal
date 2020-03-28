@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap');
+
+:root {
+  --primary-color: #1df9ba;
+  --secondary-color: #1ccad8;
+  --danger-color: #ff5964;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.container {
+  max-width: 1200px;
+  width: 90%;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+  color: #fff;
+  font-size: 12px;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+.btn--info {
+  background-color: var(--secondary-color);
+}
+
+.btn--danger {
+  background-color: var(--danger-color);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 50px 0;
+  overflow-y: auto;
+  z-index: 999;
+  display: none;
+  opacity: 0;
+  transition-property: opacity;
+  transition-timing-function: ease-in-out;
+}
+
+.modal::before {
+  content: '';
+  background-color: rgba(0,0,0,0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.modal.opened {
+  display: block;
+}
+
+.modal__overlay {
+  background-color: rgba(0,0,0,0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.modal__box {
+  background-color: #fff;
+  max-width: 500px;
+  margin: 0 auto;
+  width: 90%;
+  padding: 20px;
+  border-radius: 4px;
+  position: relative;
+  z-index: 1;
+  transform: translateY(-60%);
+  opacity: 0;
+  transition-property: all;
+  transition-timing-function: ease;
+}
+
+.modal__box.animate {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.modal__close {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--danger-color);
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.modal__box_header {
+  text-align: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.modal__box_header h2 {
+  margin: 0;
+}
+
+.modal__box_body {
+  padding: 40px 0;
+}
+
+.modal__box_body p {
+  font-size: 14px;
+  margin: 0;
+}
+
+.modal__box_footer {
+  padding: 20px 0;
+  border-top: 1px solid #f1f1f1;
+  text-align: center;
+}
